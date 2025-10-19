@@ -149,6 +149,8 @@ namespace DefenseShields
             var comp = block?.GameLogic?.GetAs<DefenseShields>();
             if (comp == null) return;
             comp.DsSet.Settings.FortifyShield = newValue;
+            if (newValue && comp.DsSet.Settings.SideShunting)
+                comp.DsSet.Settings.SideShunting = false;
             comp.FitChanged = true;
             comp.SettingsUpdated = true;
             comp.SettingsChangeRequest = true;
@@ -726,6 +728,8 @@ namespace DefenseShields
             {
                 comp.StartRedirectTimer();
                 comp.DsSet.Settings.SideShunting = newValue;
+                if (newValue && comp.DsSet.Settings.FortifyShield)
+                    comp.DsSet.Settings.FortifyShield = false;
                 comp.FitChanged = true;
                 comp.SettingsUpdated = true;
                 comp.SettingsChangeRequest = true;
