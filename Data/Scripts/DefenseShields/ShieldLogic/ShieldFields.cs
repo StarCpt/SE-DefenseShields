@@ -47,7 +47,6 @@ namespace DefenseShields
         internal readonly HashSet<MyEntity> FriendlyMissileCache = new HashSet<MyEntity>();
         internal readonly ShieldChargeMgr ChargeMgr = new ShieldChargeMgr();
         internal readonly ConcurrentDictionary<MyEntity, ProtectCache> ProtectedEntCache = new ConcurrentDictionary<MyEntity, ProtectCache>();
-        internal readonly MyShipController FakeController = new MyShipController();
 
         internal readonly ConcurrentDictionary<MyEntity, EntIntersectInfo> WebEnts = new ConcurrentDictionary<MyEntity, EntIntersectInfo>();
         internal readonly ConcurrentDictionary<MyEntity, MoverInfo> EntsByMe = new ConcurrentDictionary<MyEntity, MoverInfo>();
@@ -366,6 +365,8 @@ namespace DefenseShields
         internal bool EntCleanUpTime { get; set; }
         internal bool ShieldActive { get; set; }
         internal bool ClientInitPacket { get; set; }
+        internal bool SuppressHex { get; set; }
+
 
         internal Vector3D MyGridCenter { get; set; }
         internal Vector3D WorldEllipsoidCenter { get; set; }
